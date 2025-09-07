@@ -34,14 +34,6 @@ def click_login(driver):
     except TimeoutException:
         pytest.fail("Login Button not present!")
         
-# def test_login_success(driver):
-#     login(driver,'Admin','admin123')
-#     click_login(driver)
-
-# def test_login_fail(driver):
-#     login(driver,'Mohak','mohak123')
-#     click_login(driver)
-
 def test_login_success(driver):
     login(driver, "Admin", "admin123")
     click_login(driver)
