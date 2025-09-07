@@ -46,5 +46,3 @@ def test_login_fail(driver):
     assert "auth/login" in driver.current_url.lower()
     # error_msg = driver.find_element(By.CSS_SELECTOR, ".oxd-alert-content-text").text
     # assert "invalid" in error_msg.lower()
-
-
