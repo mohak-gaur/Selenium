@@ -1,0 +1,32 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from twocaptcha import TwoCaptcha
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+
+# 1. Instantiate the WebDriver
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+
+# 2. Open Google search page (ya jahan captcha aaye)
+url = "https://www.google.com/"  # Update if a captcha demo page used
+driver.get(url)
+
+# 3. Extract site key (inspect karke data-sitekey nikaalein)
+site_key = "YOUR_SITE_KEY"
+
+# 4. Solve captcha using 2Captcha
+solver = TwoCaptcha("YOUR_2CAPTCHA_API_KEY")
+response = solver.recaptcha(sitekey=site_key, url=url)
+captcha_code = response['code']
+
+# 5. Set solved captcha response
+recaptcha_response_element = driver.find_element(By.ID, 'g-recaptcha-response')
+driver.execute_script(f'arguments[0].value = "{captcha_code}";', recaptcha_response_element)
+
+# 6. Submit the search (or the form)
+submit_btn = driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]')
+submit_btn.click()
+
+# 7. Pause for manual review before quitting (optional)
+input("Press enter to close browser.")
+driver.quit()
