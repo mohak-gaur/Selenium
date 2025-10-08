@@ -16,7 +16,7 @@ def init_driver():
     return driver
 
 def cosmic_register():
-    tester_name  = "cosmic_miner_tester10"
+    tester_name  = "cosmic_miner_tester18"
     tester_email = f"{tester_name}@yopmail.com"
     # tester_email = "cosmic_miner_tester1@yopmail.com"
     driver = init_driver()
@@ -63,13 +63,25 @@ def cosmic_register():
 
     # time.sleep(60)
 
-#Close PopUp
-
-    wait.until(EC.element_to_be_clickable((By.ID , "closePopup"))).click()
-
-    time.sleep(5)
+#Close PopUp | dontShowAgain
 
 
+    # close_popup = wait.until(EC.element_to_be_clickable((By.ID , "closePopup")))
+    checkbox = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR , "input#dontShowAgain")))
+    checkbox.click()
+    time.sleep(3)
+    popup_close = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "closePopup")))
+    popup_close.click()
+
+    # time.sleep(5)
+
+#Start Mining
+
+    start_mining = wait.until(EC.element_to_be_clickable((By.ID , "startMiningBtn")))
+    driver.execute_script("arguments[0].scrollIntoView(true);" , start_mining)
+    start_mining.click()
+
+    time.sleep(10)
 
 #Find Referral Button
 
