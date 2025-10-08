@@ -16,7 +16,7 @@ def init_driver():
     return driver
 
 def cosmic_register():
-    tester_name  = "cosmic_miner_tester9"
+    tester_name  = "cosmic_miner_tester10"
     tester_email = f"{tester_name}@yopmail.com"
     # tester_email = "cosmic_miner_tester1@yopmail.com"
     driver = init_driver()
