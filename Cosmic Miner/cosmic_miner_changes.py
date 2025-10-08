@@ -14,9 +14,9 @@ from collections import deque
 # ---------- CONFIG ----------
 EXCEL_FILE = r'Cosmic Miner/users.xlsx'
 EXCEL_SHEET = 'users'
-START_REFERRAL_CODE = 'QM1JEHOY'  # Level 1 referral code
+START_REFERRAL_CODE = 'KQ0M9F8U'  # Level 1 referral code
 CHILDREN_PER_PARENT = 3
-MAX_LEVELS = 3
+MAX_LEVELS = 4
 DEFAULT_PIN = "0000"
 
 SITE_HOME_URL = "https://www.cosmiminer.in/ravi/"
@@ -85,10 +85,28 @@ def handle_pin_setup(driver, wait):
         time.sleep(0.2)
     driver.find_element(By.ID, "setPinBtn").click()
 
+    #Dont Show Checkbox Tick
+    try:
+        checkbox = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR , "input#dontShowAgain")))
+        checkbox.click()
+    except Exception:
+        pass
+
     # Close popup (if appears)
     try:
         popup_close = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "closePopup")))
         popup_close.click()
+    except Exception:
+        pass
+
+    #Start Mining
+
+    try:
+        start_mining = wait.until(EC.element_to_be_clickable((By.ID , "startMiningBtn")))
+        driver.execute_script("arguments[0].scrollIntoView(true);" , start_mining)
+        start_mining.click()
+        print("Mining Started!")
+        time.sleep(3)
     except Exception:
         pass
 
