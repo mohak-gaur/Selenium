@@ -9,14 +9,15 @@ import pandas as pd
 import time
 import logging
 from collections import deque
+import random
 
 
 # ---------- CONFIG ----------
 EXCEL_FILE = r'Cosmic Miner/users.xlsx'
 EXCEL_SHEET = 'users'
-START_REFERRAL_CODE = 'KQ0M9F8U'  # Level 1 referral code
-CHILDREN_PER_PARENT = 3
-MAX_LEVELS = 4
+START_REFERRAL_CODE = 'QM1JEHOY'  # Level 1 referral code
+CHILDREN_PER_PARENT = random.randint(1,20) #added randint (Dicussed with Bharat Sir)
+MAX_LEVELS = 10
 DEFAULT_PIN = "0000"
 
 SITE_HOME_URL = "https://www.cosmiminer.in/ravi/"
