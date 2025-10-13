@@ -16,7 +16,7 @@ import random
 EXCEL_FILE = r'Cosmic Miner/users.xlsx'
 EXCEL_SHEET = 'users'
 START_REFERRAL_CODE = 'QM1JEHOY'  # Level 1 referral code
-CHILDREN_PER_PARENT = random.randint(1,20) #added randint (Dicussed with Bharat Sir)
+CHILDREN_PER_PARENT = 20#random.randint(1,20) #added randint (Discussed with Bharat Sir)
 MAX_LEVELS = 10
 DEFAULT_PIN = "0000"
 

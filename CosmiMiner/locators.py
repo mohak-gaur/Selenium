@@ -12,4 +12,6 @@ class Close_PopUp:
         close_popup = (By.ID , "closePopup")
 
 class Start_Mining:
-        pass
+        start_button = (By.ID , "startMiningBtn")
+        mining_status_xpath = (By.XPATH , "//div[@class='mining-status active']")
+        time_left = (By.ID , "serverTimeLeft")

@@ -1,0 +1,7 @@
+*.txt
+*.xlsx
+*.pyc
+*log
+
+!requirements.txt
+!pytest.ini
