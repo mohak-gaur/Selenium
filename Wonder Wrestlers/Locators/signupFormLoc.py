@@ -1,0 +1,11 @@
+class SignUp_Form_Locators:
+    username = "//input[@name = 'username']"
+    full_name = "//input[@name = 'fullName']"
+    email = "//input[@name = 'email']"
+    dob = "//input[@name = 'dob']"
+    phone_number = "//input[@name = 'phone']"
+    upload_id = "//label[@class='upload_content']"
+    password = "//input[@name = 'password']"
+    confirm_password = "//input[@name = 'confirmPassword']"
+    tnc = "//input[@name = 'terms']"
+    create_account = "//button[@type = 'submit']"
